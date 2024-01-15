@@ -35,3 +35,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/',[ObatController::class,'index']);
 Route::get('/search',[ObatController::class,'search']);
+
+Route::get('/obats/create', [ObatController::class, 'create'])->name('obats.create');
+Route::get('/obats', [ObatController::class, 'index'])->name('index');
+Route::resource('obats', ObatController::class);
+
+Route::get('/obats/{id}/edit', [ObatController::class, 'edit'])->name('obats.edit');
+Route::put('/obats/{id}', [ObatController::class, 'update'])->name('obats.update');
